@@ -1,0 +1,81 @@
+﻿
+@model Job_Search_App.ViewModels.DashboardViewModel
+
+
+<h3>  Update Posted job Information:</h3>
+
+
+
+
+<div class="row justify-content-center">
+
+ 
+    <form asp-controller="UpdateDashboard" asp-action="EditDashboard">
+        <div class="card">
+
+            <label>Title </label>
+            <p> <input asp-for="@Model.jobInfo.Title"></p>
+
+            <label>Job Type </label>
+            <p> <input asp-for="@Model.jobInfo.Type"></p>
+
+
+
+
+            <label>Company Name </label>
+            <p> <input asp-for="@Model.jobInfo.CompanyName"></p>
+
+            <label>Company Description </label>
+            <p> <input asp-for="@Model.jobInfo.CompanyDescription"></p>
+
+
+
+
+            <label>Filled </label>
+            <p> <input asp-for="@Model.jobInfo.Filled"></p>
+
+
+            <label>Job Description: </label>
+
+            <div class="card" id=" welcome">
+                Description:<input asp-for=" @Model.jobInfo.Description" />
+            </div>
+
+
+            <label>Location</label>
+            <h3> <input asp-for="@Model.jobInfo.Location" /></h3>
+
+
+            <label>Lastdate</label>
+            <p> <input asp-for="@Model.jobInfo.LastDate"></p>
+
+            <div class="row">
+                <div class='col-sm-6'>
+                    <div class="form-group">
+                        <div class='input-group date' id='datetimepicker2'>
+                            @*<input type='text' class="form-control" />*@
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    $(function () {
+                        $('#datetimepicker2').datetimepicker({
+                            locale: 'ru'
+                        });
+                    });
+                </script>
+            </div>
+
+
+            <input type="submit" value="Update" />
+
+            <br /><br /> <br /><br />
+        </div>
+    </form>
+</div>
+
+
+
