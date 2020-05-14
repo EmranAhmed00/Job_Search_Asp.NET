@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Applicant>
+@using Humanizer
+@{
+    ViewData["Title"] = "Applicants";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="bg-light-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h1 class="heading">Applicants for all of your position</h1>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container">
+        <div class="row">
+            @foreach (var applicant in Model)
+            {
+                <div class="col-lg-6">
+                    <div class="box applicant">
+                        <h4>@applicant.User.FirstName @applicant.User.LastName</h4>
+                        <a href="#" data-toggle="modal" data-target="#contact-modal"
+                           class="btn btn-outline-white-secondary btn-sm">
+                            <i class="fa fa-envelope"></i>Contact 
+                        </a>
+                        <div class="card">
+                            <span>
+                                Phone: @applicant.User.Telephonenumber
+                            </span>
+                            <span>
+                                Email: @applicant.User.Email
+                            </span>
+                            <span>
+                                Address: @applicant.User.Streetaddress
+                            </span>
+                        </div>
+                        <h1 class="jumbotron" style="font: 100px;" >
+                            <span class="badge badge-info">Applied @applicant.CreatedAt.Humanize()</span>
+                        </h1>
+                        <div class="d-flex justify-content-between">
+                            <p class="intro"></p>
+                            <div class="image">
+                                <img src="~/img/avatar.png" alt=""
+                                     class="img-fluid rounded-circle">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+         
+        </div>
+    </div>
+</section>
