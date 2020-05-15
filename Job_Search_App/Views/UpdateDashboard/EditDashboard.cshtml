@@ -1,7 +1,6 @@
 ﻿
 @model Job_Search_App.ViewModels.DashboardViewModel
 
-
 <h3>  Update Posted job Information:</h3>
 
 
@@ -11,7 +10,7 @@
 
  
     <form asp-controller="UpdateDashboard" asp-action="EditDashboard">
-        <div class="card">
+        <div id="welcome" style="font-size:25px;">
 
             <label>Title </label>
             <p> <input asp-for="@Model.jobInfo.Title"></p>
@@ -36,11 +35,11 @@
 
 
             <label>Job Description: </label>
+            <p><input asp-for=" @Model.jobInfo.Description"  /></p> @Html.TextAreaFor(m => m.Description, new { @class = "form-control", rows = 5 })
+            @*<textarea class="form-control">
+        <p><input asp-for=" @Model.jobInfo.Description" /></p>
 
-            <div class="card" id=" welcome">
-                Description:<input asp-for=" @Model.jobInfo.Description" />
-            </div>
-
+        </textarea>*@
 
             <label>Location</label>
             <h3> <input asp-for="@Model.jobInfo.Location" /></h3>
@@ -49,25 +48,25 @@
             <label>Lastdate</label>
             <p> <input asp-for="@Model.jobInfo.LastDate"></p>
 
-            <div class="row">
-                <div class='col-sm-6'>
-                    <div class="form-group">
-                        <div class='input-group date' id='datetimepicker2'>
-                            @*<input type='text' class="form-control" />*@
-                            <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-calendar"></span>
-                            </span>
-                        </div>
+            @*<div class="row">
+        <div class='col-sm-6'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker2'>*@
+            @*<input type='text' class="form-control" />*@
+            @*<span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
                     </div>
                 </div>
-                <script type="text/javascript">
-                    $(function () {
-                        $('#datetimepicker2').datetimepicker({
-                            locale: 'ru'
-                        });
-                    });
-                </script>
             </div>
+            <script type="text/javascript">
+                $(function () {
+                    $('#datetimepicker2').datetimepicker({
+                        locale: 'ru'
+                    });
+                });
+            </script>
+        </div>*@
 
 
             <input type="submit" value="Update" />

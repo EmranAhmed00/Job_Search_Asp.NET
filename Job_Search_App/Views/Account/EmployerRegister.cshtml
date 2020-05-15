@@ -9,12 +9,15 @@
 <div class="col-lg-6 offset-3">
     <div class="box">
         <h3 class="heading">New account</h3>
-        <p class="lead">Not our registered yet?</p>
+        <p class="lead">Not  registered yet?</p>
+        <div>
+            <h3 class="card" id="welcome">Reigster as a Employer:</h3>
+        </div>
         <p class="text-muted">
             If you have any questions, please feel free to <a href="#">contact us</a>,
             our customer service center is working for you 24/7.
         </p>
-        <form method="post" asp-controller="Account" asp-action="EmployerRegister">
+        <form method="post" asp-controller="Account" asp-action="EmployerRegister" id="welcome" style="font-size:25px;">
             <div asp-validation-summary="ModelOnly"></div>
             @Html.ValidationSummary()
 

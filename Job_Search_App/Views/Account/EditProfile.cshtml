@@ -14,58 +14,59 @@
             @Html.ValidationSummary()
             @Html.AntiForgeryToken()
             <div class="form-group">
-                <div class="card">
+                <div id="welcome" style="font-size:30px;">
+                    <div class="form-group">
 
-                    @Html.LabelFor(c => c.FirstName, "First Name")
-                    @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control" })
-                </div>
-
-
-                <div class="form-group">
-                    @Html.LabelFor(c => c.LastName, "Last Name")
-                    @Html.TextBoxFor(x => x.LastName, new { @class = "form-control" })
-                </div>
-
-
-                <div class="form-group">
-                    <label>Gender</label>
-                    <br>
-                    <div class="form-check form-check-inline">
-                        @Html.RadioButtonFor(x => x.Gender, "Male", new { @class = "form-check-input", id = "male", @checked = "checked" })
-                        @* <input class="form-check-input" checked *@
-                        @*        type="radio" name="Gender" id="male gender" *@
-                        @*        value="male"> *@
-                        @* <label class="form-check-label" for="male">Male</label> *@
-                        @Html.LabelFor(x => x.Gender, "Male", new { @class = "form-check-label" })
+                        @Html.LabelFor(c => c.FirstName, "First Name")
+                        @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control" })
                     </div>
-                    <div class="form-check form-check-inline">
-                        @Html.RadioButtonFor(x => x.Gender, "Female", new { @class = "form-check-input", id = "female" })
-                        @* <input class="form-check-input" *@
-                        @*        type="radio" name="Gender" id="female" *@
-                        @*        value="female"> *@
-                        @* <label class="form-check-label" for="female">Female</label> *@
-                        @Html.LabelFor(x => x.Gender, "Female", new { @class = "form-check-label" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(c => c.Streetaddress, "Address")
-                    @Html.TextBoxFor(m => m.Streetaddress, new { @class = "form-control" })
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(c => c.City, "City")
-                    @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(c => c.Country, "Country")
-                    @Html.TextBoxFor(m => m.Country, new { @class = "form-control" })
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(c => c.Telephonenumber, "Phone Number")
-                    @Html.TextBoxFor(m => m.Telephonenumber, new { @class = "form-control" })
-                </div>
 
+
+                    <div class="form-group">
+                        @Html.LabelFor(c => c.LastName, "Last Name")
+                        @Html.TextBoxFor(x => x.LastName, new { @class = "form-control" })
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <br>
+                        <div class="form-check form-check-inline">
+                            @Html.RadioButtonFor(x => x.Gender, "Male", new { @class = "form-check-input", id = "male", @checked = "checked" })
+                            @* <input class="form-check-input" checked *@
+                            @*        type="radio" name="Gender" id="male gender" *@
+                            @*        value="male"> *@
+                            @* <label class="form-check-label" for="male">Male</label> *@
+                            @Html.LabelFor(x => x.Gender, "Male", new { @class = "form-check-label" })
+                        </div>
+                        <div class="form-check form-check-inline">
+                            @Html.RadioButtonFor(x => x.Gender, "Female", new { @class = "form-check-input", id = "female" })
+                            @* <input class="form-check-input" *@
+                            @*        type="radio" name="Gender" id="female" *@
+                            @*        value="female"> *@
+                            @* <label class="form-check-label" for="female">Female</label> *@
+                            @Html.LabelFor(x => x.Gender, "Female", new { @class = "form-check-label" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(c => c.Streetaddress, "Address")
+                        @Html.TextBoxFor(m => m.Streetaddress, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(c => c.City, "City")
+                        @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(c => c.Country, "Country")
+                        @Html.TextBoxFor(m => m.Country, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(c => c.Telephonenumber, "Phone Number")
+                        @Html.TextBoxFor(m => m.Telephonenumber, new { @class = "form-control" })
+                    </div>
+
+                </div>
             </div>
-
             <div class="text-center">
                 <button type="submit" class="btn btn-outline-white-primary">
                     <i class="fa fa-signing"></i> Update
