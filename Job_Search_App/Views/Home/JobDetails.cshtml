@@ -56,7 +56,6 @@
                         {
                             <form asp-controller="Job" asp-action="Apply" asp-route-id="@Model.Job.Id" method="post">
                                 @Html.AntiForgeryToken()
-                                @*<input type="hidden" name="job" value="1">*@
                                 <input type="submit" class="btn btn-outline-white-primary"
                                        value="Apply for this job" />
                             </form>
@@ -100,7 +99,6 @@
                         {
                             <form asp-controller="Job" asp-action="Apply" asp-route-id="@Model.Job.Id" method="post">
                                 @Html.AntiForgeryToken()
-                                @*<input type="hidden" name="job" value="1">*@
                                 <input type="submit" class="btn btn-outline-white-primary"
                                        value="Apply for this job" />
                             </form>

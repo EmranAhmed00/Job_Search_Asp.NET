@@ -355,6 +355,24 @@ strong {
     padding: 2%;
 }
 
+
+
+#Appli {
+    width: 100%;
+    font: 25px;
+    color: #900a0b;
+    background-color: lightgoldenrodyellow;
+    font-family: 'Comic Sans MS';
+    text-align: center;
+    margin: auto;
+    padding: 2%;
+}
+
+
+
+
+
+
 .navbar {
     text-transform: uppercase;
     letter-spacing: 0.1em;

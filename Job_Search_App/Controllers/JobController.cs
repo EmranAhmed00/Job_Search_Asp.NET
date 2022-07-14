@@ -10,7 +10,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
-
 namespace Job_Search_App.Controllers
 
 {
@@ -45,13 +44,13 @@ namespace Job_Search_App.Controllers
         [Route("jobs/save")]
         [Authorize(Roles = "Employer")]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Save(Job model)
         {
             if(ModelState.IsValid)
             {
                 TempData["type"] = "success";
                 TempData["message"] = "Job posted successfully";
-                //_logger.LogInformation(model.ToString());
                 var user = await _userManager.GetUserAsync(HttpContext.User);
                 model.User = user;
                 _context.Jobs.Add(model);
@@ -66,6 +65,7 @@ namespace Job_Search_App.Controllers
 
         [HttpPost]
         //[Authorize(Roles = "Employee")]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Apply(int id)
         {
             var job = _context.Jobs.SingleOrDefault(x => x.Id == id);
@@ -107,26 +107,10 @@ namespace Job_Search_App.Controllers
 
             return RedirectToActionPermanent("Index", "Dashboard");
         }
+
         
-        [HttpPost]
-        [Authorize(Roles = "Employer")]
-        [Route("employer/jobs/{id}/destroy")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Destroy(int id)
-        {
-            var job = _context.Jobs.SingleOrDefault(x => x.Id == id);
-            if(job == null)
-            {
-                return NotFound();
-            }
-
-            _context.Jobs.Remove(job);
-            await _context.SaveChangesAsync();
-
-            TempData["type"] = "success";
-            TempData["message"] = "Job deleted successfully";
-
-            return RedirectToActionPermanent("Index", "Dashboard");
-        }
     }
 }
+
+
+

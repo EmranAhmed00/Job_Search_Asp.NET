@@ -9,7 +9,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto">
-                <h1 class="heading">dashboard</h1>
+                <h1 class="heading">Dashboard</h1>
                 <p class="lead text-center">All created jobs</p>
             </div>
         </div>
@@ -67,10 +67,9 @@
                                         </a>
                                     </td>
                                     <td>
-                                        @*<a href="#" class="btn btn-outline-white-secondary">*@
 
                                             <a asp-controller="UpdateDashboard" asp-action="EditDashboard" asp-route-id="@job.Id" class="btn-btn-outline-white-secondary">
-                                                <i class="fa fa-edit"></i>Edit
+                                                <i class="fa fa-edit" ></i><button type="button" class="btn btn-info">Edit</button>  
                                             </a>
                                             <br>
                                             @if (job.Filled)
@@ -91,11 +90,7 @@
                                                     <span class="hidden-xs hidden-sm">Mark as </span>filled
                                                 </a><br>
                                             }
-                                            <form asp-controller="Job" asp-action="Destroy" method="post" asp-route-id="@job.Id">
-                                                <button class="btn btn-outline-white-secondary" type="submit">
-                                                    <i class="fa fa-times-circle-o"></i>Delete
-                                                </button>
-                                            </form>
+                                          
 </td>
                                 </tr>
                             }

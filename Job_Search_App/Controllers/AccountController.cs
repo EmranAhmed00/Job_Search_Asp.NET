@@ -36,6 +36,7 @@ namespace Job_Search_App.Controllers
 
         [HttpPost]
         [Route("employer/register")]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> EmployerRegister(
             [Bind("FirstName", "LastName", "Email", "Password", "ConfirmPassword")]
             EmployerRegisterViewModel model)
@@ -50,7 +51,6 @@ namespace Job_Search_App.Controllers
                     Email = model.Email
                 };
                 var result = await _userManager.CreateAsync(user, model.Password);
-                //IdentityResult roleResult = await _roleManager.CreateAsync(new IdentityRole("Employee"));
 
                 if (result.Succeeded)
                 {
@@ -68,6 +68,8 @@ namespace Job_Search_App.Controllers
                         await _userManager.AddToRoleAsync(user, "Employer");
                     }
 
+                    TempData["type"] = "success";
+                    TempData["message"] = "You Have Registered As a Employer successfully";
                     //await _signManager.SignInAsync(user, false);
                     return RedirectToAction("Index", "Home");
                 }
@@ -79,6 +81,9 @@ namespace Job_Search_App.Controllers
                     }
                 }
             }
+
+           
+
 
             return View();
         }
@@ -92,6 +97,7 @@ namespace Job_Search_App.Controllers
 
         [HttpPost]
         [Route("employee/register")]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> EmployeeRegister(
             [Bind("FirstName", "LastName", "Email", "Password", "ConfirmPassword" ,"Streetaddress" , "City", "Country" , "Telephonenumber")]
             EmployeeRegisterViewModel model)
@@ -113,7 +119,6 @@ namespace Job_Search_App.Controllers
                     Email = model.Email
                 };
                 var result = await _userManager.CreateAsync(user, model.Password);
-                //IdentityResult roleResult = await _roleManager.CreateAsync(new IdentityRole("Employee"));
 
                 if (result.Succeeded)
                 {
@@ -131,7 +136,9 @@ namespace Job_Search_App.Controllers
                         await _userManager.AddToRoleAsync(user, "Employee");
                     }
 
-                    //await _signManager.SignInAsync(user, false);
+                    TempData["type"] = "success";
+                    TempData["message"] = "You Have Registered As a Job-seeker successfully";
+
                     return RedirectToAction("Login", "Account");
                 }
 
@@ -154,6 +161,7 @@ namespace Job_Search_App.Controllers
 
         [HttpPost]
         [Route("login")]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
             if (ModelState.IsValid)
@@ -187,6 +195,7 @@ namespace Job_Search_App.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Logout()
         {
             await _signManager.SignOutAsync();
@@ -206,9 +215,9 @@ namespace Job_Search_App.Controllers
         [Authorize(Roles = "Employee")]
         [HttpPost]
         [Route("employee/update-profile")]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> UpdateProfile([FromForm] User model)
         {
-//            _logger.LogError(model.Gender.ToString());
             var user = await _userManager.GetUserAsync(HttpContext.User);
             user.FirstName = model.FirstName;
             user.LastName = model.LastName;

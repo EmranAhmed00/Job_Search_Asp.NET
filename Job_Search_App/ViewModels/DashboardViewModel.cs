@@ -13,7 +13,10 @@ namespace Job_Search_App.ViewModels
         public Job jobInfo { get; set; }
 
         public string Title { get; set; }
-        [Required, Display(Name = "Job Description", Prompt = "Job Description")]
+
+        [Required, Display(Name = "Job Description", Prompt = "Job Description"),]
+        
+            [DataType(DataType.MultilineText)]
         public string Description { get; set; }
         [Required, Display(Name = "Location", Prompt = "Location")]
         public string Location { get; set; }

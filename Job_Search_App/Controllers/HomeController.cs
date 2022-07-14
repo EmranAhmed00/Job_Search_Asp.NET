@@ -43,7 +43,6 @@ namespace Job_Search_App.Controllers
         [Route("jobs/{id}/details")]
         public async Task<IActionResult> JobDetails(int id)
         {
-            //ViewBag.message = "You can't do this action";
             var job = _context.Jobs.SingleOrDefault(x => x.Id == id);
             var user = await _userManager.GetUserAsync(HttpContext.User);
             var applied = false;

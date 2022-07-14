@@ -25,6 +25,18 @@
                     <div class="col-lg-6">
                         <div class="box applicant">
                             <h4>@applicant.User.FirstName @applicant.User.LastName</h4>
+
+                            <div class="card-columns" id="Appli">
+                                <span>
+                                    Phone: @applicant.User.Telephonenumber
+                                </span>
+                                <span>
+                                    Email: @applicant.User.Email
+                                </span>
+                                <span>
+                                    Address: @applicant.User.Streetaddress
+                                </span>
+                            </div>
                             <a href="#" data-toggle="modal" data-target="#contact-modal"
                                class="btn btn-outline-white-secondary btn-sm">
                                 <i class="fa fa-envelope"></i>Contact
