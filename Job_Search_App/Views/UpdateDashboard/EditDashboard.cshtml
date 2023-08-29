@@ -11,8 +11,6 @@
 <h3>  Update Posted job Information:</h3>
 
 
-
-
 <div class="row justify-content-center">
 
 
@@ -25,9 +23,6 @@
             <label>Job Type </label>
             <p> <input asp-for="@Model.jobInfo.Type"></p>
 
-
-
-
             <label>Company Name </label>
             <p> <input asp-for="@Model.jobInfo.CompanyName"></p>
             <label>Company Description </label>
@@ -36,9 +31,7 @@
                 <p> @Html.TextAreaFor(k => k.jobInfo.CompanyDescription, new { @class = "form-controll", rows = 4 }) </p>
             </div>
 
-
             <label>Filled </label>
-            @*<p> <input asp-for="@Model.jobInfo.Filled"></p>*@
 
             <p>@Html.CheckBoxFor(k => k.Filled)</p>
 
@@ -47,17 +40,12 @@
 
             <p> @Html.TextAreaFor(k => k.jobInfo.Description, new { @class = "form-controll", rows = 4 }) </p>
 
-
-
-
             <label>Location</label>
             <h3> <input asp-for="@Model.jobInfo.Location" /></h3>
 
 
             <label>Lastdate</label>
             <p>@Html.EditorFor(l => l.LastDate)</p>
-
-
 
             <br /> <br />
             <input type="submit" value="Update" />
@@ -66,6 +54,4 @@
         </div>
     </form>
 </div>
-
-
 
